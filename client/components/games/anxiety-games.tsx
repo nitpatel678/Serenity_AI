@@ -27,6 +27,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import BreathingGame from "./breathing-game";
+import { ZenGarden } from "./zen-garden";
 
 type GameId = "breathing" | "waves" | "garden" | "forest";
 
@@ -118,49 +120,14 @@ export const AnxietyGames = ({ onGamePlayed }: AnxietyGamesProps) => {
   const renderGame = () => {
     switch (selectedGame) {
       case "breathing":
-        return (
-          <div className="space-y-2">
-            <p className="text-sm text-muted-foreground">
-              Try a 4-4-6 pattern. Inhale 4s, hold 4s, exhale 6s.
-            </p>
-            <Button size="sm" variant="secondary" onClick={() => setShowGame(false)}>
-              Done
-            </Button>
-          </div>
-        );
+
+        return <BreathingGame/> 
       case "garden":
-        return (
-          <div className="space-y-2">
-            <p className="text-sm text-muted-foreground">
-              Visualize a peaceful garden and sync breath with gentle cues.
-            </p>
-            <Button size="sm" variant="secondary" onClick={() => setShowGame(false)}>
-              Done
-            </Button>
-          </div>
-        );
+        return <ZenGarden/>
       case "forest":
-        return (
-          <div className="space-y-2">
-            <p className="text-sm text-muted-foreground">
-              Imagine walking through a forest, breathing with each step.
-            </p>
-            <Button size="sm" variant="secondary" onClick={() => setShowGame(false)}>
-              Done
-            </Button>
-          </div>
-        );
+        return
       case "waves":
-        return (
-          <div className="space-y-2">
-            <p className="text-sm text-muted-foreground">
-              Inhale as a wave rises, exhale as it recedes.
-            </p>
-            <Button size="sm" variant="secondary" onClick={() => setShowGame(false)}>
-              Done
-            </Button>
-          </div>
-        );
+        return 
       default:
         return null;
     }
@@ -204,7 +171,9 @@ export const AnxietyGames = ({ onGamePlayed }: AnxietyGamesProps) => {
                 >
                   <CardContent className="p-4">
                     <div className="flex items-start gap-4">
-                      <div className={`p-3 rounded-xl ${game.color} ${game.bgColor}`}>
+                      <div
+                        className={`p-3 rounded-xl ${game.color} ${game.bgColor}`}
+                      >
                         <game.icon className="h-6 w-6" aria-hidden="true" />
                       </div>
                       <div className="flex-1">
@@ -228,13 +197,15 @@ export const AnxietyGames = ({ onGamePlayed }: AnxietyGamesProps) => {
         </CardContent>
       </Card>
 
-      <Dialog open={showGame} onOpenChange={handleDialogChange}>
+      <Dialog open={showGame} onOpenChange={setShowGame}>
         <DialogContent className="sm:max-w-[600px]">
           <DialogHeader>
-            <DialogTitle>{selectedGameData?.title ?? "Activity"}</DialogTitle>
+            <DialogTitle>
+              {games.find((g) => g.id === selectedGame)?.title}
+            </DialogTitle>
           </DialogHeader>
 
-          <div className="mt-2">{renderGame()}</div>
+          {renderGame()}
         </DialogContent>
       </Dialog>
     </>
