@@ -12,6 +12,16 @@ import {
   Waves,
   Star,
   Quote,
+  Code,
+  FileCode2,
+  Paintbrush,
+  Bot,
+  Move,
+  Layout,
+  Database,
+  Server,
+  Workflow,
+  Bug,
 } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
@@ -34,7 +44,6 @@ export default function Home() {
       color: "from-rose-500/20",
       delay: 0.2,
     },
-
     {
       icon: Lightbulb,
       title: "Smart Insights",
@@ -42,7 +51,6 @@ export default function Home() {
       color: "from-amber-500/20",
       delay: 0.4,
     },
-
     {
       icon: Lock,
       title: "Private & Secure",
@@ -50,7 +58,6 @@ export default function Home() {
       color: "from-emerald-500/20",
       delay: 0.6,
     },
-
     {
       icon: MessageSquareHeart,
       title: "Evidence-Based",
@@ -95,6 +102,86 @@ export default function Home() {
     },
   ];
 
+  const techStack = [
+    {
+      name: "Next.js 14",
+      desc: "Modern React framework with app router",
+      icon: Code,
+      color: "from-blue-500/30",
+      delay: 0.1,
+    },
+    {
+      name: "TypeScript",
+      desc: "Type-safe development environment",
+      icon: FileCode2,
+      color: "from-sky-500/30",
+      delay: 0.2,
+    },
+    {
+      name: "Tailwind CSS",
+      desc: "Utility-first styling framework",
+      icon: Paintbrush,
+      color: "from-cyan-500/30",
+      delay: 0.3,
+    },
+    {
+      name: "Google Gemini AI",
+      desc: "Advanced conversational AI for therapy",
+      icon: Bot,
+      color: "from-violet-500/30",
+      delay: 0.4,
+    },
+    {
+      name: "Framer Motion",
+      desc: "Smooth animations and interactions",
+      icon: Move,
+      color: "from-pink-500/30",
+      delay: 0.5,
+    },
+    {
+      name: "Radix UI",
+      desc: "Accessible component library",
+      icon: Layout,
+      color: "from-purple-500/30",
+      delay: 0.6,
+    },
+    {
+      name: "NextAuth.js",
+      desc: "Authentication and session management",
+      icon: Lock,
+      color: "from-rose-500/30",
+      delay: 0.7,
+    },
+    {
+      name: "MongoDB",
+      desc: "Scalable NoSQL database for session and user data",
+      icon: Database,
+      color: "from-green-500/30",
+      delay: 0.8,
+    },
+    {
+      name: "Node.js",
+      desc: "Backend runtime for scalable server-side logic",
+      icon: Server,
+      color: "from-emerald-500/30",
+      delay: 0.9,
+    },
+    {
+      name: "Inngest",
+      desc: "Serverless workflow engine for AI processing and crisis detection",
+      icon: Workflow,
+      color: "from-orange-500/30",
+      delay: 1.0,
+    },
+    {
+      name: "EchoAPI",
+      desc: "Prompt testing and API simulation for debugging",
+      icon: Bug,
+      color: "from-red-500/30",
+      delay: 1.1,
+    },
+  ];
+
   const [emotion, setEmotion] = useState(50);
   const [mounted, setMounted] = useState(false);
 
@@ -107,23 +194,15 @@ export default function Home() {
 
   return (
     <div className="flex flex-col font-semibold min-h-screen overflow-hidden">
-      <section
-        className="relative min-h-[90vh] 
-      mt-16 flex flex-col items-center 
-      justify-center py-12 px-4"
-      >
+      {/* Hero Section */}
+      <section className="relative min-h-[90vh] mt-16 flex flex-col items-center justify-center py-12 px-4">
         {/* Background blobs */}
         <div className="absolute inset-0 -z-10 overflow-hidden">
           <div
-            className={`absolute w-[500px] h-[500px] 
-            rounded-full blur-3xl top-0 -left-20 
-            transition-all duration-700 ease-in-out
+            className={`absolute w-[500px] h-[500px] rounded-full blur-3xl top-0 -left-20 transition-all duration-700 ease-in-out
             bg-gradient-to-r ${currentEmotion.color} to-transparent opacity-60`}
           />
-          <div
-            className="absolute w-[400px] h-[400px] rounded-full
-          bg-secondary/10 blur-3xl bottom-0 right-0 animate-pulse delay-700"
-          />
+          <div className="absolute w-[400px] h-[400px] rounded-full bg-secondary/10 blur-3xl bottom-0 right-0 animate-pulse delay-700" />
           <div className="absolute inset-0 bg-background/80 backdrop-blur-3xl" />
         </div>
 
@@ -136,28 +215,15 @@ export default function Home() {
           transition={{ duration: 1, ease: "easeOut" }}
           className="relative space-y-8 text-center"
         >
-          <div
-            className="inline-flex items-center gap-2
-          rounded-full px-4 py-1.5 text-sm border 
-          border-primary/20 bg-primary/5 backdrop-blur-sm hover:border-primary/40
-          transition-all duration-300"
-          >
+          <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm border border-primary/20 bg-primary/5 backdrop-blur-sm hover:border-primary/40 transition-all duration-300">
             <Waves className="w-4 h-4 animate-wave text-primary" />
             <span className="relative text-foreground/90 dark:text-foreground">
               Your Personalized AI Agent Mental Health Buddy
             </span>
           </div>
 
-          <h1
-            className="text-4xl md:text-6xl lg:text-7xl font-bold 
-           font-plus-jakarta -tracking-tight"
-          >
-            <span
-              className="inline-block bg-gradient-to-r 
-            from-primary via-primary/90 to-secondary bg-clip-text text-transparent
-            [text-shadow:_0_1px_0_rgb(0_0_0_/_20%)] hover:to-primary transition-all 
-            duration-300"
-            >
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-plus-jakarta -tracking-tight">
+            <span className="inline-block bg-gradient-to-r from-primary via-primary/90 to-secondary bg-clip-text text-transparent hover:to-primary transition-all duration-300">
               Step Into Calm,
             </span>
             <br />
@@ -166,10 +232,7 @@ export default function Home() {
             </span>
           </h1>
 
-          <p
-            className="max-w-[600px] text-base md:text-lg text-muted-foreground 
-          leading-relaxed tracking-wide mt-6"
-          >
+          <p className="max-w-[600px] text-base md:text-lg text-muted-foreground leading-relaxed tracking-wide mt-6">
             Your journey to clarity starts here — with an AI companion that
             listens, understands, and helps you grow.
           </p>
@@ -189,8 +252,7 @@ export default function Home() {
                 {emotions.map((em) => (
                   <div
                     key={em.value}
-                    className={`transition-all duration-500 ease-out 
-                    cursor-pointer hover:scale-105 ${
+                    className={`transition-all duration-500 ease-out cursor-pointer hover:scale-105 ${
                       Math.abs(emotion - em.value) < 15
                         ? "opacity-100 scale-110"
                         : "opacity-50 scale-90"
@@ -198,24 +260,21 @@ export default function Home() {
                     onClick={() => setEmotion(em.value)}
                   >
                     <div className="text-2xl transform-gpu">
-                      {em.label.split(" ")[0]} {/* Emoji */}
+                      {em.label.split(" ")[0]}
                     </div>
                     <div className="text-xs text-muted-foreground mt-1 font-medium">
-                      {em.label.split(" ")[1]} {/* Text */}
+                      {em.label.split(" ")[1]}
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/*Slider*/}
+            {/* Slider */}
             <div className="relative px-2">
               <div
-                className={`absolute inset-0 bg-gradient-to-r 
-                ${currentEmotion.color} to-transparent blur-2xl -z-10 transition-all 
-                duration-500`}
+                className={`absolute inset-0 bg-gradient-to-r ${currentEmotion.color} to-transparent blur-2xl -z-10 transition-all duration-500`}
               />
-
               <Slider
                 value={[emotion]}
                 onValueChange={(value) => setEmotion(value[0])}
@@ -232,27 +291,20 @@ export default function Home() {
             </div>
           </motion.div>
 
-          {/* Call to action button */}
+          {/* Call to action */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center 
-          items-center "
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : 20 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
             <Button
               size="lg"
-              className=" relative group h-12 px-8 
-            rounded-full bg-gradient-to-r from-primary via-primary/90 
-            to-secondary hover:to-primary shadow-lg shadow-primary/20 
-            transition-all duration-500 hover:shadow-xl hover:shadow-primary/30 cursor-pointer"
+              className=" relative group h-12 px-8 rounded-full bg-gradient-to-r from-primary via-primary/90 to-secondary hover:to-primary shadow-lg shadow-primary/20 transition-all duration-500 hover:shadow-xl hover:shadow-primary/30 cursor-pointer"
             >
               <span className="relative z-10 font-medium flex items-center gap-2">
                 Unlock Your Path
-                <ArrowRight
-                  className="w-4 h-4 group-hover:translate-x-1 
-                transition-transform duration-300"
-                />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
               </span>
             </Button>
           </motion.div>
@@ -260,20 +312,13 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-
       <section className="relative py-20 px-4 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <motion.div className="text-center mb-16 space-y-4 text-white">
-            <h2
-              className="text-3xl font-bold bg-gradient-to-r bg-clip-text text-primary
-            dark:text-primary/90"
-            >
+            <h2 className="text-3xl font-bold bg-gradient-to-r bg-clip-text text-primary dark:text-primary/90">
               How SERENITY Helps You
             </h2>
-            <p
-              className="text-foreground dark:text-foreground/95 max-w-2xl 
-            mx-auto font-light text-lg"
-            >
+            <p className="text-foreground dark:text-foreground/95 max-w-2xl mx-auto font-light text-lg">
               Discover a gentler way to find support — with an AI that truly
               understands
             </p>
@@ -288,37 +333,20 @@ export default function Home() {
                 transition={{ delay: feature.delay, duration: 0.4 }}
                 viewport={{ once: true }}
               >
-                <Card
-                  className="group relative overflow-hidden border 
-                border-primary/10 hover:border-primary/20 
-                transition-all duration-300 h-[200px] md:h-[220px] 
-                bg-card/30 dark:bg-card/80 backdrop-blur-sm"
-                >
+                <Card className="group relative overflow-hidden border border-primary/10 hover:border-primary/20 transition-all duration-300 h-[200px] md:h-[220px] bg-card/30 dark:bg-card/80 backdrop-blur-sm">
                   {/* Gradient hover overlay */}
                   <div
-                    className={`pointer-events-none absolute inset-0 
-                  bg-gradient-to-br ${feature.color} to-transparent opacity-0 
-                  group-hover:opacity-20 transition-opacity duration-500 
-                  dark:group-hover:opacity-30`}
+                    className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${feature.color} to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500 dark:group-hover:opacity-30`}
                   />
-
                   <CardHeader className="relative z-10 pb-4 space-y-3">
                     <div className="flex items-center gap-3">
-                      <div
-                        className="p-2 rounded-xl bg-primary/10 dark:bg-primary/20 
-                      group-hover:bg-primary/30 transition-colors"
-                      >
+                      <div className="p-2 rounded-xl bg-primary/10 dark:bg-primary/20 group-hover:bg-primary/30 transition-colors">
                         <feature.icon className="w-5 h-5 text-primary dark:text-primary/90" />
                       </div>
-                      <h3
-                        className="font-semibold tracking-tight text-foreground/90 
-                      dark:text-foreground"
-                      >
+                      <h3 className="font-semibold tracking-tight text-foreground/90 dark:text-foreground">
                         {feature.title}
                       </h3>
                     </div>
-
-                    {/* Description */}
                     <p className="text-sm text-muted-foreground dark:text-muted-foreground/80 leading-relaxed">
                       {feature.description}
                     </p>
@@ -330,11 +358,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/*User testimonial */}
-
+      {/* User Testimonial Section */}
       <section className="relative py-20 px-4 overflow-hidden">
         <div className="max-w-6xl mx-auto">
-          {/* Heading */}
           <motion.div
             className="text-center mb-16 space-y-4 text-white"
             initial={{ opacity: 0, y: 20 }}
@@ -360,20 +386,11 @@ export default function Home() {
                 transition={{ delay: review.delay, duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                <Card
-                  className="group relative overflow-hidden border 
-                border-primary/10 hover:border-primary/20 
-                transition-all duration-300 h-[260px] bg-card/30 dark:bg-card/80 
-                backdrop-blur-sm p-5 flex flex-col justify-between"
-                >
+                <Card className="group relative overflow-hidden border border-primary/10 hover:border-primary/20 transition-all duration-300 h-[260px] bg-card/30 dark:bg-card/80 backdrop-blur-sm p-5 flex flex-col justify-between">
                   {/* Gradient overlay */}
                   <div
-                    className={`pointer-events-none absolute inset-0 
-                  bg-gradient-to-br ${review.color} to-transparent opacity-0 
-                  group-hover:opacity-20 transition-opacity duration-500 
-                  dark:group-hover:opacity-30`}
+                    className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${review.color} to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500 dark:group-hover:opacity-30`}
                   />
-
                   {/* Content */}
                   <CardHeader className="relative z-10 space-y-3 p-0">
                     <Quote className="w-6 h-6 text-primary/80" />
@@ -381,8 +398,7 @@ export default function Home() {
                       "{review.feedback}"
                     </p>
                   </CardHeader>
-
-                  {/* Footer: name + stars */}
+                  {/* Footer */}
                   <div className="relative z-10 flex items-center justify-between pt-4">
                     <div>
                       <h4 className="text-sm font-semibold text-foreground">
@@ -404,6 +420,60 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Technology Stack Section */}
+      <section className="relative py-20 px-4 overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            className="text-center mb-16 space-y-4 text-white"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl font-bold bg-gradient-to-r bg-clip-text text-primary dark:text-primary/90">
+              Technology Stack
+            </h2>
+            <p className="text-foreground dark:text-foreground/95 max-w-2xl mx-auto font-light text-lg">
+              Powering Serenity with the latest in modern web and AI tech
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 relative">
+            {techStack.map((stack, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: stack.delay, duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <Card className="group relative overflow-hidden border border-primary/10 hover:border-primary/20 transition-all duration-300 h-[180px] bg-card/30 dark:bg-card/80 backdrop-blur-sm p-5 flex flex-col justify-between">
+                  {/* Gradient overlay */}
+                  <div
+                    className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${stack.color} to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500 dark:group-hover:opacity-30`}
+                  />
+                  {/* Content */}
+                  <CardHeader className="relative z-10 space-y-3 p-0">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 rounded-xl bg-primary/10 dark:bg-primary/20 group-hover:bg-primary/30 transition-colors">
+                        <stack.icon className="w-5 h-5 text-primary dark:text-primary/90" />
+                      </div>
+                      <h3 className="font-semibold tracking-tight text-foreground/90 dark:text-foreground">
+                        {stack.name}
+                      </h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground dark:text-muted-foreground/80 leading-relaxed">
+                      {stack.desc}
+                    </p>
+                  </CardHeader>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
+

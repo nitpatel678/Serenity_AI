@@ -30,6 +30,7 @@ import {
 import BreathingGame from "./breathing-game";
 import { ZenGarden } from "./zen-garden";
 import { ForestGame } from "./forest-game";
+import OceanWaves from "./ocean-game";
 
 type GameId = "breathing" | "waves" | "garden" | "forest";
 
@@ -128,7 +129,7 @@ export const AnxietyGames = ({ onGamePlayed }: AnxietyGamesProps) => {
       case "forest":
         return <ForestGame/>
       case "waves":
-        return 
+        return <OceanWaves/>
       default:
         return null;
     }
