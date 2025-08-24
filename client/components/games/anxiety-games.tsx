@@ -29,6 +29,7 @@ import {
 } from "@/components/ui/dialog";
 import BreathingGame from "./breathing-game";
 import { ZenGarden } from "./zen-garden";
+import { ForestGame } from "./forest-game";
 
 type GameId = "breathing" | "waves" | "garden" | "forest";
 
@@ -125,7 +126,7 @@ export const AnxietyGames = ({ onGamePlayed }: AnxietyGamesProps) => {
       case "garden":
         return <ZenGarden/>
       case "forest":
-        return
+        return <ForestGame/>
       case "waves":
         return 
       default:
