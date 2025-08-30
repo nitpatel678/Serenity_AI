@@ -26,6 +26,8 @@ import {
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader } from "@/components/ui/card";
+import { FlickeringGrid } from "@/components/magicui/flickering-grid";
+import { WarpBackground } from "@/components/magicui/warp-background";
 
 export default function Home() {
   const emotions = [

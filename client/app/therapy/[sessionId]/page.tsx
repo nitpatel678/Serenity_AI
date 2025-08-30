@@ -18,7 +18,7 @@ import {
   MessageSquare,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence , Variants } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import {
   Card,
@@ -27,10 +27,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { BreathingGame } from "@/components/games/breathing-game";
-import { ZenGarden } from "@/components/games/zen-garden";
-import { ForestGame } from "@/components/games/forest-game";
-import { OceanWaves } from "@/components/games/ocean-waves";
+
 import { Badge } from "@/components/ui/badge";
 import {
   createChatSession,
@@ -42,7 +39,6 @@ import {
 } from "@/lib/api/chat";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { formatDistanceToNow } from "date-fns";
-import { Separator } from "@/components/ui/separator";
 
 interface SuggestedQuestion {
   id: string;
@@ -74,7 +70,8 @@ const SUGGESTED_QUESTIONS = [
   { text: "I need help with work-life balance" },
 ];
 
-const glowAnimation = {
+
+const glowAnimation: Variants = {
   initial: { opacity: 0.5, scale: 1 },
   animate: {
     opacity: [0.5, 1, 0.5],
@@ -82,10 +79,11 @@ const glowAnimation = {
     transition: {
       duration: 3,
       repeat: Infinity,
-      ease: "easeInOut",
+      ease: [0.4, 0, 0.2, 1], // cubic-bezier curve for "easeInOut"
     },
   },
 };
+
 
 const COMPLETION_THRESHOLD = 5;
 
@@ -425,7 +423,7 @@ export default function TherapyPage() {
   };
 
   return (
-    <div className="relative max-w-7xl mx-auto px-4 mb-6">
+    <div className="relative max-w-7xl mx-auto px-4">
       <div className="flex h-[calc(100vh-4rem)] mt-20 gap-6">
         {/* Sidebar with chat history */}
         <div className="w-80 flex flex-col border-r bg-muted/30">
